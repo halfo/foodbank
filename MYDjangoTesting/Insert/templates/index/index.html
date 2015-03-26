@@ -1,0 +1,52 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <title>Restaurant Finder</title>
+    <meta charset="utf-8">
+    <!-- <link rel="stylesheet" type="text/css" href="{% static "css/master.css" %}"> -->
+    <link href="http://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static "js/bower_components/angular-material/angular-material.css" %}"/>
+    <link rel="stylesheet" href="{% static "js/assets/app.css" %}"/>
+  </head>
+
+  <body ng-app="myApp" layout="column" ng-controller="AppCtrl">
+    <md-content style="background-color: #2d2d28">
+      <md-toolbar class="md-tall" layout="row" style="background-color: #2d2d28">
+
+        <md-button flex="25" href="/" layout="row">
+          <md-icon md-svg-src="assets/images/location.svg" class="s70"></md-icon>
+          <h2 class="title"><span>Restaurant<br>Finder</span></h2>
+        </md-button>
+
+        <div flex="60">
+        </div>
+
+        <md-button flex="15" ng-click="showAdvanced($event)"><span>Settings</span></md-button>
+
+      </md-toolbar>
+
+      <md-divider class="flush"></md-divider>
+
+      <div class="search-title">
+        <h1>Search for great <span>restaurants</span> around you — in seconds</h1>
+      </div>
+      <div class="search-field">        
+        <form action="firstpageRequest/" method="GET">
+          <input type="text" name="query" class="searchinput" placeholder="Enter keywords to search..." ng-model="search.text">
+        </form>
+      </div>
+    </md-content>
+
+
+    <script src="{% static "js/bower_components/angular/angular.js" %}"></script>
+    <script src="{% static "js/bower_components/angular-animate/angular-animate.js" %}"></script>
+    <script src="{% static "js/bower_components/angular-aria/angular-aria.js" %}" ></script>
+    <script type="text/javascript" src="{% static "js/bower_components/angular-material/angular-material.js" %}"></script>
+
+    <script src="{% static "js/assets/app.js" %}"></script>
+    <script type="text/javascript">
+    </script>
+
+  </body>
+</html>
