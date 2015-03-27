@@ -21,13 +21,21 @@ def firstpage(request):
 
 def firstpageRequest(request):
 	print "this is from firstpageRequest"
-	val = ""
+
+	query = ""
 	if request.method == 'GET':
 		print "true"
 		# for hasib, use as many fields in the input form and write respective codes
 		# like
-		#  val = request.GET.get('**YOUR DEFINED PARAMETER**', '')
-		#  and than print it or append with HttpResponse(val)
-		val = request.GET.get('query', '')
-		print val		
-	return HttpResponse("This is what you typed : " + str(val))
+		#  query = request.GET.get('**YOUR DEFINED PARAMETER**', '')
+		#  and than print it or append with HttpResponse(query)
+		query = request.GET.get('query', '')
+		cbox = json.loads(request.GET.get('cbox', '')) # u know what it is :/
+		rating = request.GET.get('rating', '') # don't forget to make them int
+		distance = request.GET.get('distance', '') # float would be better I guess :s
+		location  = json.loads(request.GET.get('location', '')) # lat, lon are float :/
+
+	return HttpResponse("query : " + str(query) + " <br>" +
+						"rating : " + rating + " <br>" +
+						"distance : " + distance + " <br>" +
+						"location : (" + str(location['lat']) + ', ' + str(location['lon']) + ')')
