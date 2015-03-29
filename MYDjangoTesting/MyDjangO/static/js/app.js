@@ -14,6 +14,11 @@ var pos = {
   lon: 0
 };
 
+var dest = {
+  lat: 0,
+  lon: 0
+};
+
 angular.module('myApp', ['ngMaterial'])
 .config(function($interpolateProvider){
     $interpolateProvider.startSymbol('[[').endSymbol(']]');
@@ -23,6 +28,8 @@ angular.module('myApp', ['ngMaterial'])
   $scope.checkbox = checkbox;
   $scope.slider = slider;
   $scope.pos = pos;
+  $scope.dest = dest;
+  $scope.selectedIndex = 100;
 
   $scope.init = function() {
     navigator.geolocation.getCurrentPosition(
